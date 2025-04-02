@@ -1,0 +1,38 @@
+# Archivos de IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Archivos de compilación
+/out/
+/build/
+/bin/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias
+/node_modules/
+/.gradle/
+/.mvn/
+
+# Archivos de logs y temporales
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Archivos generados por el sistema
+*.class
+*.jar
+*.war
+*.ear
+*.pyc
+*.pyo
+*.pyd
+
+# Configuración específica del entorno
+local.properties
+.env
