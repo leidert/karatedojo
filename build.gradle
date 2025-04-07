@@ -6,14 +6,31 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+    maven {
+        url 'https://repo.maven.apache.org/maven2'
+    }
+
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'com.intuit.karate:karate-junit5:1.2.0.RC5'
+    testImplementation 'com.intuit.karate:karate-core:1.3.1'
+
+    // JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+
+    // Para informes
+    testImplementation 'net.masterthought:cucumber-reporting:5.7.4'
 }
 
 test {
     useJUnitPlatform()
+    systemProperty "karate.options", System.properties.getProperty("karate.options")
+//    systemProperty "karate.env", System.properties.getProperty("karate.env")
+    systemProperty "karate.env", System.getProperty("karate.env")
+    outputs.upToDateWhen { false }
+
+    // Asegura que los tests se ejecuten en paralelo
+    systemProperty "karate.config.dir", "src/test/resources"
 }

@@ -23,6 +23,7 @@ Thumbs.db
 *.tmp
 *.swp
 *.swo
+target
 
 # Archivos generados por el sistema
 *.class
